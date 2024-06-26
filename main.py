@@ -69,10 +69,6 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
-@app.get("/")
-async def read_root():
-    return ({"message" : "Hello World"})
-
 @app.post("/chatbot")
 async def chatbot(msg: Message):
     ints = predict_class(msg.message, model)
